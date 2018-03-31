@@ -1,12 +1,10 @@
-export default {
-  note: {
-    id: null,
-    title: null,
-    body: null,
-    lastSaved: null
-  },
+import { defaultNoteState } from './defaults'
+import { clone } from 'lodash'
 
-  notes: [],
+export default {
+  note: clone(defaultNoteState),
+
+  notes: JSON.parse(localStorage.getItem('notes')) || [],
 
   saveTimeout: null
 }
