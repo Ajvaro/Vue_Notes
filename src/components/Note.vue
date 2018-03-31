@@ -5,8 +5,14 @@
       <span class="note__delete-icon">&times;</span>
     </a>
     <div class="note__content">
-      <a href="#" class="note__title">Note one</a>
-      <p class="note__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facere fugit inventore magni.</p>
+      <a href="#" class="note__title">
+        <span v-if="note.title">{{ note.title }}</span>
+        <span v-else>Untitled note</span>
+      </a>
+      <p class="note__body">
+        <span v-if="note.body">{{ note.body }}</span>
+        <span v-else>Empty</span>
+      </p>
     </div>
   </div>
 
@@ -14,6 +20,9 @@
 
 <script>
   export default {
+    props: [
+      'note'
+    ]
 
   }
 </script>
